@@ -1,6 +1,9 @@
-body {
+#setGrid {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .container {
@@ -32,7 +35,7 @@ body {
     background-color: white;
 }
 
-.gridIn {
+.cells {
     display: flex;
     flex-direction: row;
     flex: 1;
