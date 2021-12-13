@@ -8,7 +8,6 @@ setGrid.setAttribute('id', 'setGrid');
 setGrid.setAttribute('type', 'button');
 resetGrid.setAttribute('id', 'resetGrid');
 resetGrid.setAttribute('type', 'button');
-//resetCell.setAttribute('onClick', "gridPromp()")
 container.classList.add('container');
 containerTwo.classList.add('containerTwo');
 
@@ -27,8 +26,10 @@ container.appendChild(containerTwo);
 // the function below is proper way to create variable with loop. I utilize
 // this method to create numbers of div by manipulate the DOM 
 
+gridNum(32);
+
 function gridNum(sum) {
-    containerTwo.replaceChildren();
+    containerTwo.replaceChildren(); // this stuff removes whole child nodes
     for (let i = 0; i < sum; i++) {
         grid = document.createElement('div');
         grid.classList.add('grid');
@@ -38,25 +39,35 @@ function gridNum(sum) {
             cells.classList.add('cells');
             grid.appendChild(cells);
         }
-    //    this['grid' + i].setAttribute('style', 'width: 600/16px; height: 600/16px');
+        cellBlack();
+        //    this['grid' + i].setAttribute('style', 'width: 600/16px; height: 600/16px');
     };
 };
 
 //function below is the proper way to ward off the idle hands inputting num other than < 1 and >= 100
 function gridPrompt() {
-    let sum = prompt('Please enter cells x cells', '32');
+    let sum = prompt('Please enter cells x cells between 1 to 100', '32');
     if (sum > 100 || sum < 1 || sum > 0 === false && sum <= 100 === false) {
         alert('Please enter number between 1 to 100. Applying 32x32 cells...');
-        return sum = 0;
+        return gridNum(32);
     };
-    return sum;
+    gridNum(sum);
 };
 
 setGrid.addEventListener('click', () => {
     sum = gridPrompt();
-    gridNum(sum);
 });
 
 resetGrid.addEventListener('click', () => {
     containerTwo.replaceChildren(); // this stuff removes whole child nodes
 });
+
+function cellBlack() {
+    let cellAll = document.querySelectorAll('.cells');
+    cellAll.forEach(cells => {
+        cells.addEventListener('mouseover', () =>
+        cells.setAttribute('style', 'background: black; color: black; border: 1px solid black')
+    )})
+};
+
+cellBlack();
