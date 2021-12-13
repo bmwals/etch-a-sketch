@@ -63,7 +63,7 @@ resetGrid.addEventListener('click', () => {
 });
 
 function cellBlack() {
-    let cellAll = document.querySelectorAll('.cells');
+    const cellAll = document.querySelectorAll('.cells');
     cellAll.forEach(cells => {
         cells.addEventListener('mouseover', () =>
         cells.setAttribute('style', 'background: black; color: black; border: 1px solid black')
