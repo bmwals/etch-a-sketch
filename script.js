@@ -36,12 +36,11 @@ function gridNum(sum) {
 
 //function below is the proper way to ward off the idle hands inputting num other than < 1 and >= 100
 function gridPrompt() {
-    let sum = prompt('Please enter total grids', '32');
+    let sum = prompt('Please enter cells x cells', '32');
     if (sum > 100 || sum < 1 || sum > 0 === false && sum <= 100 === false) {
-        alert('Please enter number between 1 to 100');
+        alert('Please enter number between 1 to 100. Applying 32x32 cells...');
         sum = 32;
     };
-    console.log(typeof(sum));
     return sum;
 }
 
